@@ -1,0 +1,73 @@
+<form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+    <input type="hidden" name="id" [value]="service.formData.id">
+    <div class="form-group">
+        <label>Name Product</label>
+        <input name="name" #name="ngModel" [(ngModel)]="service.formData.name" class="form-control" placeholder="Name"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label>Category</label>
+        <!-- <input name="categoryID" #categoryID="ngModel" [(ngModel)]="service.formData.categoryID" class="form-control"
+            placeholder="Category" required> -->
+        <select name="categoryID" #categoryID="ngModel" [(ngModel)]="service.formData.categoryID" class="form-control">
+
+            <option *ngFor="let cat of service.categories" [value]="cat.id">
+                {{cat.name}}
+            </option>
+
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Supplier</label>
+        <!-- <input name="supplierID" #supplierID="ngModel" [(ngModel)]="service.formData.supplierID" class="form-control"
+            placeholder="Supplier" required> -->
+        <select name="supplierID" #supplierID="ngModel" [(ngModel)]="service.formData.supplierID" class="form-control">
+
+            <option *ngFor="let sup of service.suppliers" [value]="sup.id">
+                {{sup.name}}
+            </option>
+
+        </select>
+
+    </div>
+
+    <div class="form-group">
+        <label>Details</label>
+        <input name="details" #details="ngModel" [(ngModel)]="service.formData.details" class="form-control"
+            placeholder="Details" required>
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <input name="description" #description="ngModel" [(ngModel)]="service.formData.description" class="form-control"
+            placeholder="Description" required>
+    </div>
+    <div class="form-group">
+        <label>releaseDate</label>
+        <input type="datetime-local" name=" releaseDate" #releaseDate="ngModel"
+            [(ngModel)]="service.formData.releaseDate" class="form-control" placeholder="ReleaseDate" required>
+    </div>
+    <div class="form-group">
+        <label>discontinuedDate</label>
+        <input type="datetime-local" name="DiscontinuedDate" #discontinuedDate="ngModel"
+            [(ngModel)]="service.formData.discontinuedDate" class="form-control" placeholder="DiscontinuedDate"
+            required>
+    </div>
+    <div class="form-group">
+        <label>Rating</label>
+        <input name="rating" #rating="ngModel" [(ngModel)]="service.formData.rating" class="form-control"
+            placeholder="Rating" required>
+    </div>
+    <div class="form-group">
+        <label>price</label>
+        <input name="price" #price="ngModel" [(ngModel)]="service.formData.price" class="form-control"
+            placeholder="Price" required>
+    </div>
+
+
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" type="submit"> Submit</button>
+    </div>
+</form>
